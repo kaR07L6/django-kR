@@ -54,3 +54,6 @@ def delete(request, pk):
         board.delete()
         return redirect("app:index")
     return redirect("app:index")
+
+
+

@@ -16,3 +16,5 @@ class Migration(migrations.Migration):
             field=models.CharField(default='匿名', max_length=100),
         ),
     ]
+
+
