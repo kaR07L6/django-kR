@@ -14,5 +14,5 @@ class Migration(migrations.Migration):
             model_name="board",
             name="name",
             field=models.CharField(default="匿名", max_length=100),
-        ),
+        ), 
     ]
