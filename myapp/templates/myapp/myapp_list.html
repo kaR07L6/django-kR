@@ -1,0 +1,12 @@
+{% extends "base/myapp_base.html" %}
+{% block body %}
+
+<ul>
+    {% for page in myapp_list %}
+        <li>{{ page.page_deta }}: {{ page.title }}</li>
+    {% empty %}
+        <div>日記のページが１つもありません。</div>
+    {% endfor %}
+</ul>
+
+{% endblock %} 

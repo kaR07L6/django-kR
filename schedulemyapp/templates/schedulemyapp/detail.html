@@ -1,0 +1,15 @@
+<h1>{{ movie.title }}</h1>
+<h2>{{ movie.director }}</h2>
+<h3>{{ movie.watch_date }}</h3>
+
+{% for log in movie.log.all %}
+    <li>
+        <button onclick="location.href='{% url 'schedulemyapp:updatelog' log.id %}'">edit</button>
+        <button onclick="location.href='{% url 'schedulemyapp:deletelog' log.id %}'">delete</button>
+        <a href="{% url 'myapp:writingthismovielog' movie.id %}">Write log of this movie data</a><br>
+        <a href="{% url 'myapp:deletemovie' movie.id %}">Delete this movie data</a><br>
+        <a href="{% url 'myapp:index' %}">To Index</a><br>
+
+        {{ log.text }}
+    </li>
+{% endfor %}

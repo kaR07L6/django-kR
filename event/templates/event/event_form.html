@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イベントスケジュール</title>
+    <link rel="stylesheet" href="event_form.css">
+    <link rel="icon" type="image/png" href="IMG_0892.PNG">
+</head>
+<body>
+    <div class="form1">
+        <h1>30秒でつくれる!カンタン出欠表</h1>
+            <div class="eventname">
+                <h2>イベント名</h2>
+                <input type="text" placeholder="例）今期もお疲れ様でした飲み会 など" name="name" required>
+            </div>
+
+            <div class="dey">
+                <h2>日程候補</h2>
+                <p>カレンダーをクリックすると日程候補に日付が入ります。</p>
+                <p>例: 8/7（月）19:00~</p>
+                <p>8/8（火）20:00~</p>
+                <textarea placeholder="候補の区切りは改行で判断されます。" name="message" required></textarea>
+            </div>
+
+            <div class="memo">
+                <h2>メモ（任意）</h2>
+                <textarea placeholder="例）出欠〆切は⚪︎日 など" name="message" required></textarea>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">出欠表をつくる</button>
+            </form>
+
+        </form>
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  
+        <button type="submit">送信する</button>  
+    </form>
+    <a href="{% url 'event:event_list' %}">リストに戻る</a> 
+    </div>
+</body>
+</html>

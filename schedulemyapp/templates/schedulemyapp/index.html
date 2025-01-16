@@ -1,0 +1,18 @@
+{% if movie_list %}
+    {% for movie in movie_list %}
+    <li>
+        <a href="{% url 'schedulemyapp:movie_detail' movie.id %}">{{ movie.title }}</a><br>
+        <a href="{% url 'schedulemyapp:registerdirector' %}">名前</a><br>
+        <a href="{% url 'schedulemyapp:registermovie' %}">日付</a><br>
+        <a href="{% url 'schedulemyapp:writinglog' %}">追加事項</a><br>
+
+        {{ movie.director.name }}
+        {{ movie.watch_date }}
+    </li>
+    {% endfor %}
+{% endif %}
+
+
+
+
+
