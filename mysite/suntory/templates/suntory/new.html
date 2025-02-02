@@ -1,0 +1,19 @@
+{% extends 'suntory/base.html' %}
+
+{% block title %}新規投稿{% endblock %}
+
+{% block content %}
+    <section>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="{{ form.content.id_for_label }}"></label>
+            {{ form.content }}
+            <button type="submit">流す</button>
+        </form>
+
+        <form action="{% url 'index' %}" method="get">
+            <button type="submit" class="btn">スキップ</button>
+        </form>
+        
+    </section>
+{% endblock %}

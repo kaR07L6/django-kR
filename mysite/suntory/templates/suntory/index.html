@@ -1,0 +1,15 @@
+{% extends 'suntory/base.html' %}
+
+{% block title %}みんなの投稿{% endblock %}
+
+{% block content %}
+    <section>
+        {% for main in mains %}
+            {{ main.content }}
+
+            <form method="post" action="{% url 'index' %}">
+                {% csrf_token %}
+            </form>
+        {% endfor %}
+    </section>
+{% endblock %}
