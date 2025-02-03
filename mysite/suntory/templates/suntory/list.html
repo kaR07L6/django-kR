@@ -1,0 +1,24 @@
+{% extends 'suntory/base.html' %}
+
+{% block title %}みんなの投稿{% endblock %}
+
+{% block content %}
+    <section>
+        {% for main in mains %}
+            {{ main.content }}
+
+            <form method="post" action="{% url 'index' %}">
+                {% csrf_token %}
+                <!-- <label>
+                    <input type="radio" name="choice" value="option1">がんばった
+                </label>
+                <label>
+                    <input type="radio" name="choice" value="option2">大丈夫
+                </label>
+                <label>
+                    <input type="radio" name="choice" value="option3">よくある
+                </label> -->
+            </form>
+        {% endfor %}
+    </section>
+{% endblock %}

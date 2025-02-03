@@ -4,7 +4,7 @@ from .models import Main
 
 
 def index(request):
-    mains = Main.objects.all().order_by("content")
+    mains = Main.objects.all().order_by('updated_at')
     return render(request, "suntory/index.html", {"mains": mains})
 
 
@@ -13,7 +13,7 @@ def new(request):
         form = MainForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("index")
+            return redirect('index')
     else:
         form = MainForm()
     return render(request, "suntory/new.html", {"form": form})
